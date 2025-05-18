@@ -11,110 +11,85 @@
 <body>
     <h1>Ali express</h1>
 
-    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-  Link with href
-</a>
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-  Button with data-bs-target
+
+<button class="btn btn-primary savatcha" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  Savatcha
 </button>
 
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Ordered goods</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <div>
-      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-    </div>
-    <div class="dropdown mt-3">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
+    <h2>umumiy summa</h2>
+    <ul class="ordered__list">
+        <li class="ordered__item">
+            <p class="ordered__name">nomi</p>
+            <div>
+                <p>miqdori</p>
+                <p>narxi</p>
+            </div>
+            <button class="order-delete">delete</button>
+        </li>
+                <li class="ordered__item">
+            <p class="ordered__name">nomi</p>
+            <div>
+                <p>miqdori</p>
+                <p>narxi</p>
+            </div>
+            <button class="order-delete">delete</button>
+        </li>
+                <li class="ordered__item">
+            <p class="ordered__name">nomi</p>
+            <div>
+                <p>miqdori</p>
+                <p>narxi</p>
+            </div>
+            <button class="order-delete">delete</button>
+        </li>
+                <li class="ordered__item">
+            <p class="ordered__name">nomi</p>
+            <div>
+                <p>miqdori</p>
+                <p>narxi</p>
+            </div>
+            <button class="order-delete">delete</button>
+        </li>
+                <li class="ordered__item">
+            <p class="ordered__name">nomi</p>
+            <div>
+                <p>miqdori</p>
+                <p>narxi</p>
+            </div>
+            <button class="order-delete">delete</button>
+        </li>
+                <li class="ordered__item">
+            <p class="ordered__name">nomi</p>
+            <div>
+                <p>miqdori</p>
+                <p>narxi</p>
+            </div>
+            <button class="order-delete">delete</button>
+        </li>
+    </ul>
   </div>
 </div>
 
 
     <ul class="goods__list">
+        {{#each products}}
         <li class="goods__item">
-            <div class="img-wrapper"><img src="/assets/images/image.png" width="150" height="200" alt="rasm"></div>
+            <div class="img-wrapper">
+                <img width="150" height="150"  src="{{this.img_url}}" alt="rasm">
+            </div>
             <div>
-                <p class="goods-name">nomi</p>
-                <p class="goods-price">narxi</p>
+                <p class="goods-name">{{this.name}}</p>
+                <p class="goods-price">{{this.price}}$</p>
             </div>
             <button>Buyutrma berish</button>
         </li>
-                <li class="goods__item">
-            <div class="img-wrapper"><img src="/assets/images/image.png" width="150" height="200" alt="rasm"></div>
-            <div>
-                <p class="goods-name">nomi</p>
-                <p class="goods-price">narxi</p>
-            </div>
-            <button>Buyutrma berish</button>
-        </li>
-                <li class="goods__item">
-            <div class="img-wrapper"><img src="/assets/images/image.png" width="150" height="200" alt="rasm"></div>
-            <div>
-                <p class="goods-name">nomi</p>
-                <p class="goods-price">narxi</p>
-            </div>
-            <button>Buyutrma berish</button>
-        </li>
-                <li class="goods__item">
-            <div class="img-wrapper"><img src="/assets/images/image.png" width="150" height="200" alt="rasm"></div>
-            <div>
-                <p class="goods-name">nomi</p>
-                <p class="goods-price">narxi</p>
-            </div>
-            <button>Buyutrma berish</button>
-        </li>
-                <li class="goods__item">
-            <div class="img-wrapper"><img src="/assets/images/image.png" width="150" height="200" alt="rasm"></div>
-            <div>
-                <p class="goods-name">nomi</p>
-                <p class="goods-price">narxi</p>
-            </div>
-            <button>Buyutrma berish</button>
-        </li>
-
-                <li class="goods__item">
-            <div class="img-wrapper"><img src="/assets/images/image.png" width="150" height="200" alt="rasm"></div>
-            <div>
-                <p class="goods-name">nomi</p>
-                <p class="goods-price">narxi</p>
-            </div>
-            <button>Buyutrma berish</button>
-        </li>
-                <li class="goods__item">
-            <div class="img-wrapper"><img src="/assets/images/image.png" width="150" height="200" alt="rasm"></div>
-            <div>
-                <p class="goods-name">nomi</p>
-                <p class="goods-price">narxi</p>
-            </div>
-            <button>Buyutrma berish</button>
-        </li>
-                <li class="goods__item">
-            <div class="img-wrapper"><img src="/assets/images/image.png" width="150" height="200" alt="rasm"></div>
-            <div>
-                <p class="goods-name">nomi</p>
-                <p class="goods-price">narxi</p>
-            </div>
-            <button>Buyutrma berish</button>
-        </li>
-                <li class="goods__item">
-            <div class="img-wrapper"><img src="/assets/images/image.png" width="150" height="200" alt="rasm"></div>
-            <div>
-                <p class="goods-name">nomi</p>
-                <p class="goods-price">narxi</p>
-            </div>
-            <button>Buyutrma berish</button>
-        </li>
+        {{/each}}
     </ul>
     <script src="/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -4,7 +4,8 @@ module.exports = {
     MAIN: async (req, res)=>{
         try{
             if(!req.cookies.token) return res.redirect('login');
-            return res.render('index');
+            const products = await req.readFile('products');
+            return res.render('index', {products});
         }
         catch(error){
             globalError(error, res);

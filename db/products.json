@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Muzlatgich",
+        "price": 453,
+        "img_url": "/assets/images/image.png"
+    },
+    {
+        "id": 2,
+        "name": "Televizor",
+        "price": 300,
+        "img_url": "/assets/images/image.png"
+    },
+    {
+        "id": 3,
+        "name": "Laptop",
+        "price": 900,
+        "img_url": "/assets/images/image.png"
+    },
+    {
+        "id": 4,
+        "name": "Microvave",
+        "price": 200,
+        "img_url": "/assets/images/image.png"
+    },
+    {
+        "id": 5,
+        "name": "Bike",
+        "price": 110,
+        "img_url": "/assets/images/image.png"
+    },
+    {
+        "id": 6,
+        "name": "Fork",
+        "price": 10,
+        "img_url": "/assets/images/image.png"
+    },
+    {
+        "id": 7,
+        "name": "Pen",
+        "price": 5,
+        "img_url": "/assets/images/image.png"
+    }
+]
