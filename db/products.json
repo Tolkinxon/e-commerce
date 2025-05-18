@@ -40,5 +40,11 @@
         "name": "Pen",
         "price": 5,
         "img_url": "/assets/images/image.png"
+    },
+    {
+        "id": 8,
+        "name": "Knife",
+        "price": 3,
+        "img_url": "/assets/images/image.png"
     }
 ]

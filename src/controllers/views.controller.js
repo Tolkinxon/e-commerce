@@ -5,7 +5,8 @@ module.exports = {
         try{
             if(!req.cookies.token) return res.redirect('login');
             const products = await req.readFile('products');
-            return res.render('index', {products});
+            const orderedProducts = await req.readFile('orderedProducts');
+            return res.render('index', {products, orderedProducts});
         }
         catch(error){
             globalError(error, res);

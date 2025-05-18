@@ -22,62 +22,27 @@
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <h2>umumiy summa</h2>
-    <ul class="ordered__list">
+    {{let sum = 0;}}
+    {{#each orderedProducts}} {{sum += this.allPrice}} {{/each}}
+    <h2>{{sum}}</h2>
+    <ul class="ordered__list js-ordered-list">
+        {{#each orderedProducts}}
         <li class="ordered__item">
-            <p class="ordered__name">nomi</p>
+            <p class="ordered__name">{{this.orderedProductName}} </p>
             <div>
-                <p>miqdori</p>
-                <p>narxi</p>
+                <p>{{this.amount}}dona / </p>
+                <p>{{this.allPrice}}$</p>
             </div>
-            <button class="order-delete">delete</button>
+            <button class="order-delete js-delete-order" data-id="{{this.id}}" >delete</button>
         </li>
-                <li class="ordered__item">
-            <p class="ordered__name">nomi</p>
-            <div>
-                <p>miqdori</p>
-                <p>narxi</p>
-            </div>
-            <button class="order-delete">delete</button>
-        </li>
-                <li class="ordered__item">
-            <p class="ordered__name">nomi</p>
-            <div>
-                <p>miqdori</p>
-                <p>narxi</p>
-            </div>
-            <button class="order-delete">delete</button>
-        </li>
-                <li class="ordered__item">
-            <p class="ordered__name">nomi</p>
-            <div>
-                <p>miqdori</p>
-                <p>narxi</p>
-            </div>
-            <button class="order-delete">delete</button>
-        </li>
-                <li class="ordered__item">
-            <p class="ordered__name">nomi</p>
-            <div>
-                <p>miqdori</p>
-                <p>narxi</p>
-            </div>
-            <button class="order-delete">delete</button>
-        </li>
-                <li class="ordered__item">
-            <p class="ordered__name">nomi</p>
-            <div>
-                <p>miqdori</p>
-                <p>narxi</p>
-            </div>
-            <button class="order-delete">delete</button>
-        </li>
+        {{/each}}
+        
     </ul>
   </div>
 </div>
 
 
-    <ul class="goods__list">
+    <ul class="goods__list js-goods-list">
         {{#each products}}
         <li class="goods__item">
             <div class="img-wrapper">
@@ -87,10 +52,33 @@
                 <p class="goods-name">{{this.name}}</p>
                 <p class="goods-price">{{this.price}}$</p>
             </div>
-            <button>Buyutrma berish</button>
+            <button data-id="{{this.id}}" class="js-order-btn">Buyutrma berish</button>
         </li>
         {{/each}}
     </ul>
     <script src="/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const elList = document.querySelector('.js-goods-list');
+        const elOrderedList = document.querySelector('.js-ordered-list');
+        async function  putOrder(id, condition){
+            const req = await fetch(`/api/order/${id}/${condition}`);
+            const res = await req.json();
+            if(req.ok) return window.location.reload();
+            alert(res.message);
+        }
+        elList.addEventListener('click', function(evt){
+            if(evt.target.matches('.js-order-btn')) {
+                const id = evt.target.dataset.id;
+                putOrder(id, 1);
+            }
+        })
+
+        elOrderedList.addEventListener('click', function(evt){
+            if(evt.target.matches('.js-delete-order')) {
+                const id = evt.target.dataset.id;
+                putOrder(id, 2);
+            }
+        })
+    </script>
 </body>
 </html>
