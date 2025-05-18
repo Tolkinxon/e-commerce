@@ -1,0 +1,41 @@
+h1 {
+    text-align: center;
+}
+
+.goods__list {
+    margin: 100px auto;
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    list-style-type: none;
+}
+
+.img-wrapper {
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.goods__item {
+    background-color: burlywood;
+    border-radius: 10px;
+    padding: 15px 7px;
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    margin: 2px;
+}
+
+button{
+    padding: 5px;
+    outline: none;
+    border: none;
+    background-color: darkgoldenrod;
+    color: white;
+    cursor: pointer;
+}
