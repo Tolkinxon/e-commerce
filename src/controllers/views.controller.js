@@ -6,7 +6,9 @@ module.exports = {
             if(!req.cookies.token) return res.redirect('login');
             const products = await req.readFile('products');
             const orderedProducts = await req.readFile('orderedProducts');
-            return res.render('index', {products, orderedProducts});
+            const sum = orderedProducts.reduce((acc, a)=> acc+=a.allPrice, 0);
+            const sumProducts = orderedProducts.reduce((acc, a)=> acc+=a.amount, 0);
+            return res.render('index', {products, orderedProducts, sum, sumProducts});
         }
         catch(error){
             globalError(error, res);

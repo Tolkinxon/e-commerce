@@ -1,16 +1,1 @@
-[
-    {
-        "id": 1,
-        "orderedProduct_id": "2",
-        "orderedProductName": "Televizor",
-        "amount": 2,
-        "allPrice": 600
-    },
-    {
-        "id": 2,
-        "orderedProduct_id": "7",
-        "orderedProductName": "Pen",
-        "amount": 1,
-        "allPrice": 5
-    }
-]
+[]

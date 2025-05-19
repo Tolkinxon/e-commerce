@@ -17,7 +17,6 @@ module.exports = {
                     const newOrder = {id: orderedProducts.length?orderedProducts.at(-1).id+1:1, orderedProduct_id: id, orderedProductName: foundProduct.name, amount:1, allPrice: foundProduct.price}
                     orderedProducts.push(newOrder);
                     await req.writeFile('orderedProducts', orderedProducts);
-                    // orderedProducts.reduce((item)=> item.allPrice)
                     return res.status(201).json({message: 'This item successfully ordered', status: 201})
                 } else {
                     orderedProducts[indexFoundOrder].amount = orderedProducts[indexFoundOrder].amount + 1

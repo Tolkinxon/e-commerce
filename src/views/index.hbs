@@ -13,7 +13,7 @@
 
 
 <button class="btn btn-primary savatcha" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-  Savatcha
+  Savatchada - {{sumProducts}} ta buyum bor
 </button>
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -22,9 +22,8 @@
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    {{let sum = 0;}}
-    {{#each orderedProducts}} {{sum += this.allPrice}} {{/each}}
-    <h2>{{sum}}</h2>
+    <h4>Umumiy summa-{{sum}}$</h4>
+    <h4>Umumiy buyumlar soni-{{sumProducts}}ta</h4>
     <ul class="ordered__list js-ordered-list">
         {{#each orderedProducts}}
         <li class="ordered__item">
@@ -36,7 +35,6 @@
             <button class="order-delete js-delete-order" data-id="{{this.id}}" >delete</button>
         </li>
         {{/each}}
-        
     </ul>
   </div>
 </div>
@@ -58,25 +56,35 @@
     </ul>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script>
+        let condition = localStorage.getItem('condition');
+            condition = condition ? condition : 0;
+                
         const elList = document.querySelector('.js-goods-list');
         const elOrderedList = document.querySelector('.js-ordered-list');
+        const savatcha = document.querySelector('.savatcha');
+
+        if(condition == 2) savatcha.click();
+
+
         async function  putOrder(id, condition){
             const req = await fetch(`/api/order/${id}/${condition}`);
             const res = await req.json();
             if(req.ok) return window.location.reload();
             alert(res.message);
         }
-        elList.addEventListener('click', function(evt){
+        elList.addEventListener('click',  function(evt){
             if(evt.target.matches('.js-order-btn')) {
                 const id = evt.target.dataset.id;
+                window.localStorage.setItem('condition', 1);
                 putOrder(id, 1);
             }
         })
 
-        elOrderedList.addEventListener('click', function(evt){
+        elOrderedList.addEventListener('click', async function(evt){
             if(evt.target.matches('.js-delete-order')) {
                 const id = evt.target.dataset.id;
-                putOrder(id, 2);
+                window.localStorage.setItem('condition', 2);
+                await putOrder(id, 2);
             }
         })
     </script>
